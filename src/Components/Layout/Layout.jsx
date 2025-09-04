@@ -10,12 +10,8 @@ export default function Layout() {
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
   return (
-    <div className="flex flex-col min-h-screen">
-      
-      {/* Main content with Sidebar + Navbar + Outlet */}
-      <div className="flex flex-1 overflow-hidden">
-        
-        {/* Sidebar */}
+    <div className="flex flex-col min-h-screen">  
+      <div className="flex flex-1 overflow-hidden"> 
         <div
           className={`bg-gray-800 text-white transition-all duration-300 ${
             isSidebarOpen ? 'w-64' : 'w-16'
@@ -23,23 +19,16 @@ export default function Layout() {
         >
           <Saidbar />
         </div>
-
-        {/* Content area */}
         <div className="flex-1 flex flex-col overflow-hidden">
-          
-          {/* Navbar */}
           <div className="sticky top-0 z-50">
             <Navbar toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
           </div>
-          
-          {/* Main Outlet content */}
+
           <div className="flex-1 overflow-auto bg-gray-100 p-4">
             <Outlet />
           </div>
         </div>
       </div>
-
-      {/* Footer */}
       <Footer />
     </div>
   );
